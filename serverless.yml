@@ -21,6 +21,7 @@ provider:
   name: aws
   runtime: java8
   region: eu-central-1
+  timeout: 20
   iamRoleStatements:
     - Effect: "Allow"
       Action: 
@@ -65,12 +66,18 @@ package:
 
 functions:
   svg2binary:
-    handler: com.serverless.Handler
+    handler: com.serverless.SingleSVGHandler
     events:
       - http:
           path: svg2binary
           method: post
-
+  svgs2binary:
+    handler: com.serverless.MultiSVGHandler
+    events:
+      - http:
+          path: svgs2binary
+          method: post
+   
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
