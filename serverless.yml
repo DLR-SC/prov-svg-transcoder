@@ -67,16 +67,16 @@ package:
 functions:
   svg2binary:
     handler: com.serverless.SingleSVGHandler
-    events:
-      - http:
-          path: svg2binary
-          method: post
+#    events:
+#      - http:
+#          path: svg2binary
+#          method: post
   svgs2binary:
     handler: com.serverless.MultiSVGHandler
-    events:
-      - http:
-          path: svgs2binary
-          method: post
+#    events:
+#      - http:
+#          path: svgs2binary
+#          method: post
    
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events

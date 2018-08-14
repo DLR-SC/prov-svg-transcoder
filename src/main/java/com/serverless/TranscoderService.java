@@ -17,7 +17,7 @@ public class TranscoderService {
         // Create the transcoder input.
         //String svgString = "<svg  xmlns=\"http://www.w3.org/2000/svg\" height=\"150\" width=\"500\"><ellipse cx=\"240\" cy=\"100\" rx=\"220\" ry=\"30\" style=\"fill:purple\" /><ellipse cx=\"220\" cy=\"70\" rx=\"190\" ry=\"20\" style=\"fill:lime\" /><ellipse cx=\"210\" cy=\"45\" rx=\"170\" ry=\"15\" style=\"fill:yellow\" /></svg>";
         SVGDocument doc = loadXMLFromString(svgString);
-        System.out.println(doc);
+        //System.out.println(doc);
 
         TranscoderInput input = new TranscoderInput(doc);
         ByteArrayOutputStream ostream = new ByteArrayOutputStream();
