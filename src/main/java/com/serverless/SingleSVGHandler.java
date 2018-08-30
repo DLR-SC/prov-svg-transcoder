@@ -38,7 +38,7 @@ public class SingleSVGHandler implements RequestHandler<Map<String, Object>, Api
 		String fileKey = "";
 		try {
 			if(!type.equals("svg")) {
-				output = TranscoderService.svg2Binary(input.get("body").toString());
+				output = TranscoderService.svg2Binary(input.get("body").toString(), type);
 				fileKey = S3Service.uploadS3(output, type);
 			} else {
 				fileKey = S3Service.uploadS3(input.get("body").toString(), type);

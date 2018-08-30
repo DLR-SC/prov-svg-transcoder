@@ -9,9 +9,12 @@ import org.apache.batik.transcoder.image.*;
 
 public class TranscoderService {
     
-    public static ByteArrayOutputStream svg2Binary(String svgString) throws TranscoderException, IOException {
+    public static ByteArrayOutputStream svg2Binary(String svgString, String type) throws TranscoderException, IOException, IllegalArgumentException {
+    	if(!type.equals("jpg") && !type.equals("png"))
+    		throw new IllegalArgumentException("Transcoding type has to be svg, png or jpg");
         // Create a JPEG transcoder and set hints
         JPEGTranscoder t = new JPEGTranscoder();
+        PNGTranscoder p = new PNGTranscoder();
         t.addTranscodingHint(JPEGTranscoder.KEY_QUALITY, new Float(.8));
 
         // Create the transcoder input.
@@ -23,7 +26,8 @@ public class TranscoderService {
         ByteArrayOutputStream ostream = new ByteArrayOutputStream();
 		TranscoderOutput output = new TranscoderOutput(ostream);
 		// Create the transcoder output.
-		t.transcode(input, output);
+		if(type.equals("jpg")) t.transcode(input, output);
+		else p.transcode(input, output);
 
 		return (ByteArrayOutputStream) output.getOutputStream();
     }

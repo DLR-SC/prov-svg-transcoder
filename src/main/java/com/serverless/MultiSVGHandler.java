@@ -33,7 +33,7 @@ public class MultiSVGHandler implements RequestHandler<Map<String, Object>, ApiG
 		try {
 			if(!type.equals("svg")) {
 				for(String svg : rawSvgs) {
-					outputs.add(TranscoderService.svg2Binary(svg));
+					outputs.add(TranscoderService.svg2Binary(svg, type));
 				}
 			}
 		} catch(Exception ex) {
